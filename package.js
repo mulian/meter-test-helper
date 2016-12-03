@@ -13,7 +13,9 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.4.2.3');
   api.use('ecmascript');
-  api.mainModule('test-helper.js');
+  api.mainModule('test-helper.js','client');
+
+  api.export('TestHelper','client');
 });
 
 Package.onTest(function(api) {
