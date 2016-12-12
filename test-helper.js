@@ -30,24 +30,15 @@ function createUser(userId,done,debug=false) {
     if(debug) console.log("CreateUser: slow down for 1,5sec.");
   }
   syncFunction(function() {
-    Meteor.loginWithPassword(obj.username,obj.password, function(err) {
-      SecureLayer.user.setPassword(obj.password);
+    SecureLayer.user.login(obj.username,obj.password, function(err) {
       if(debug) console.log(err);
       if(err) {
-        Accounts.createUser(obj,function(err1) {
+        SecureLayer.user.create(obj,function(err2,id) {
           if(debug) console.log(err1);
           // assert.equal(err1,undefined);
-          if(err1==undefined) {
+          if(err2==undefined) {
             TestHelper.Users[userId]._id=Meteor.userId();
-            // console.log(TestHelper.Users);
-            SecureLayer.user.create(function(err2,id) {
-              if(debug) console.log(err2);
-              // assert.equal(err2,undefined);
-              if(err2==undefined) {
-                // assert.equal(SecureLayer.user.getPassword()==undefined,false);
-                done(false,true);
-              }
-            });
+            done(false,true);
           }
         });
       } else {
@@ -65,6 +56,8 @@ TestHelper = {
       username: "test1",
       email : "test@test.de",
       password : 'password!1',
+      firstName: "FirstNameTest1",
+      lastName: "LastNameTest1",
     },
     user2: {
       username: "test2",
