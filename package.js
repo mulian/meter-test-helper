@@ -1,6 +1,6 @@
 Package.describe({
   name: 'mulian:test-helper',
-  version: '0.0.1',
+  version: '0.0.2',
   // Brief, one-line summary of the package.
   summary: 'Test helper for SecureLayer.',
   // URL to the Git repository containing the source code for this package.
