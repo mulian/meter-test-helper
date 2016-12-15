@@ -3,7 +3,7 @@
 // Variables exported by this module can be imported by other packages and
 // applications. See test-helper-tests.js for an example of importing.
 export const name = 'test-helper';
-console.log("TEST!");
+// console.log("TEST!");
 
 var syncTimeout,functionList=[];
 function syncFunction(newFunction,time) {
@@ -56,8 +56,8 @@ TestHelper = {
       username: "test1",
       email : "test@test.de",
       password : 'password!1',
-      firstName: "FirstNameTest1",
-      lastName: "LastNameTest1",
+      firstname: "FirstNameTest1",
+      lastname: "LastNameTest1",
     },
     user2: {
       username: "test2",
